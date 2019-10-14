@@ -120,5 +120,6 @@ public class TestGame extends Game
          addObject(new GameObject().addComponent(new MeshRenderer(new Mesh("monkey3.obj"), material2)));//add monkey 2 to scene
          
          directionalLight.getTransform().setRot(new Quaternion(new Vector3f(1,0,0), (float)Math.toRadians(-45)));
+         //COMMIT_TEST 14/10/19
     }
 }
