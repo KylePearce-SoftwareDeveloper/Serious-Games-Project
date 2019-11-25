@@ -63,6 +63,7 @@ public class FreeMove extends GameComponent
 	{
 		getParent().getEngine().getGame().checkCollision();
 		getParent().getEngine().getGame().updateSpotLight();//13/11/19
+		getParent().getEngine().getGame().checkCollisionForCollectables();
 	}
 	
 	//12/11/19 - collision detection test

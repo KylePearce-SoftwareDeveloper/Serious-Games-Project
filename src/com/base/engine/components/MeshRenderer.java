@@ -18,6 +18,8 @@ public class MeshRenderer extends GameComponent
 	private float scaleYAttrib;
 	private float scaleZAttrib;
 	
+	private boolean collected = false;//25/11/19 - collectible coloured cubes
+	
 	public MeshRenderer(Mesh mesh, Material material, float scaleX, float scaleY, float scaleZ)
 	{
 		if(mesh == null)
@@ -79,11 +81,16 @@ public class MeshRenderer extends GameComponent
 	{
 		shader.bind();
     	shader.updateUniforms(getTransform(), material, renderingEngine);
-        mesh.draw();
+        mesh.draw(this.collected);//25/11/19 - collectible coloured cubes
 	}
 	
 	public Vector3f getScaleAttrib()
 	{
 		return new Vector3f(this.scaleXAttrib, this.scaleYAttrib, this.scaleZAttrib);
+	}
+	
+	public void setCollected(boolean collected)//25/11/19 - collectible coloured cubes
+	{
+		this.collected = collected;
 	}
 }
