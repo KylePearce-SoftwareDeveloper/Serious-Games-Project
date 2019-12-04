@@ -20,6 +20,8 @@ public class MeshRenderer extends GameComponent
 	
 	private boolean collected = false;//25/11/19 - collectible coloured cubes
 	
+	private String colour = " ";//29/11/19
+	
 	public MeshRenderer(Mesh mesh, Material material, float scaleX, float scaleY, float scaleZ)
 	{
 		if(mesh == null)
@@ -92,5 +94,24 @@ public class MeshRenderer extends GameComponent
 	public void setCollected(boolean collected)//25/11/19 - collectible coloured cubes
 	{
 		this.collected = collected;
+	}
+	
+	public boolean getCollected() {
+		return collected;
+	}
+	
+	public String getColour()//29/11/19
+	{
+		return colour;
+	}
+	
+	public void setColour(String colour)//29/11/19
+	{
+		this.colour = colour;
+	}
+	
+	public Material getMaterial()
+	{
+		return material;
 	}
 }

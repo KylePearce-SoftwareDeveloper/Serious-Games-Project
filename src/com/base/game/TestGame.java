@@ -1,7 +1,7 @@
 package com.base.game;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 import com.base.engine.components.*;
 import com.base.engine.core.*;
 import com.base.engine.rendering.*;
@@ -13,6 +13,8 @@ public class TestGame extends Game
 	private ArrayList<FreeMove> freeMoveObjects = new ArrayList<FreeMove>();
 	private ArrayList<SpotLight> spotLightObjects = new ArrayList<SpotLight>();
 	private ArrayList<MeshRenderer> meshRendererCollectableObjects = new ArrayList<MeshRenderer>();//25/11/19 - collectible coloured cubes
+	private ArrayList<MeshRenderer> doors = new ArrayList<MeshRenderer>();
+	private ArrayList<Material> doorMaterials = new ArrayList<Material>();
     
     public void init()
     {
@@ -28,6 +30,52 @@ public class TestGame extends Game
         materialTest.addTexture("diffuse", new Texture("white.jpg"));
         materialTest.addFloat("specularIntensity", 1);
         materialTest.addFloat("specularPower", 8);
+        Material materialBlue = new Material();
+        materialBlue.addTexture("diffuse", new Texture("blue.png"));
+        materialBlue.addFloat("specularIntensity", 1);
+        materialBlue.addFloat("specularPower", 8);
+        Material materialYellow = new Material();
+        materialYellow.addTexture("diffuse", new Texture("yellow.jpg"));
+        materialYellow.addFloat("specularIntensity", 1);
+        materialYellow.addFloat("specularPower", 8);
+        Material materialGreen = new Material();
+        materialGreen.addTexture("diffuse", new Texture("green.png"));
+        materialGreen.addFloat("specularIntensity", 1);
+        materialGreen.addFloat("specularPower", 8);
+        doorMaterials.add(materialGreen);//RANDOM LOGIC TEST(29/11/19)
+        Material materialRed = new Material();
+        materialRed.addTexture("diffuse", new Texture("red.jpg"));
+        materialRed.addFloat("specularIntensity", 1);
+        materialRed.addFloat("specularPower", 8);
+        Material materialOrange = new Material();
+        materialOrange.addTexture("diffuse", new Texture("orange.jpg"));
+        materialOrange.addFloat("specularIntensity", 1);
+        materialOrange.addFloat("specularPower", 8);
+        doorMaterials.add(materialOrange);//RANDOM LOGIC TEST(29/11/19)
+        Material materialPurple = new Material();
+        materialPurple.addTexture("diffuse", new Texture("purple.jpg"));
+        materialPurple.addFloat("specularIntensity", 1);
+        materialPurple.addFloat("specularPower", 8);
+        doorMaterials.add(materialPurple);//RANDOM LOGIC TEST(29/11/19)
+        Material materialBrown = new Material();
+        materialBrown.addTexture("diffuse", new Texture("brown.jpg"));
+        materialBrown.addFloat("specularIntensity", 1);
+        materialBrown.addFloat("specularPower", 8);
+        Material materialMaroon = new Material();
+        materialMaroon.addTexture("diffuse", new Texture("maroon.png"));
+        materialMaroon.addFloat("specularIntensity", 1);
+        materialMaroon.addFloat("specularPower", 8);
+        doorMaterials.add(materialMaroon);//RANDOM LOGIC TEST(29/11/19)
+        Material materialBurgundy = new Material();
+        materialBurgundy.addTexture("diffuse", new Texture("burgundy.png"));
+        materialBurgundy.addFloat("specularIntensity", 1);
+        materialBurgundy.addFloat("specularPower", 8);
+        doorMaterials.add(materialBurgundy);//RANDOM LOGIC TEST(29/11/19)
+        Material materialCyan = new Material();
+        materialCyan.addTexture("diffuse", new Texture("cyan.png"));
+        materialCyan.addFloat("specularIntensity", 1);
+        materialCyan.addFloat("specularPower", 8);
+        doorMaterials.add(materialCyan);//RANDOM LOGIC TEST(29/11/19)
         
         //MESHES
         Mesh testMonkeyMesh = new Mesh("newMonkey.obj");
@@ -126,41 +174,105 @@ public class TestGame extends Game
         meshRendererObjects.add(link1WallTop);
         //meshRendererObjects.add(link1WallFront);
         //Link Corridor 2
+        Random door1Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
+        Material door1Material = doorMaterials.get(door1Rand.nextInt(6));//RANDOM LOGIC TEST(29/11/19)
         MeshRenderer link2WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link2WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link2WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
         MeshRenderer link2WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link2WallFront = new MeshRenderer(null, materialCube, 3.0f, 3.0f, 0.25f);
+        MeshRenderer link2WallFront = new MeshRenderer(null, door1Material, 3.0f, 3.0f, 0.25f);//RANDOM LOGIC TEST(29/11/19)
         meshRendererObjects.add(link2WallRight);
         meshRendererObjects.add(link2WallLeft);
         meshRendererObjects.add(link2WallBottom);
         meshRendererObjects.add(link2WallTop);
         meshRendererObjects.add(link2WallFront);
+        doors.add(link2WallFront);
         //Link Corridor 3
+        doorMaterials.remove(doors.get(0).getMaterial());//RANDOM LOGIC TEST(29/11/19)
+        Random door2Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
+        Material door2Material = doorMaterials.get(door2Rand.nextInt(5));//RANDOM LOGIC TEST(29/11/19)
         MeshRenderer link3WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link3WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link3WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
         MeshRenderer link3WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link3WallFront = new MeshRenderer(null, materialCube, 3.0f, 3.0f, 0.25f);
+        MeshRenderer link3WallFront = new MeshRenderer(null, door2Material, 3.0f, 3.0f, 0.25f);//RANDOM LOGIC TEST(29/11/19)
         meshRendererObjects.add(link3WallRight);
         meshRendererObjects.add(link3WallLeft);
         meshRendererObjects.add(link3WallBottom);
         meshRendererObjects.add(link3WallTop);
         meshRendererObjects.add(link3WallFront);
+        doors.add(link3WallFront);
         //Link Corridor 4
+        doorMaterials.remove(doors.get(1).getMaterial());//RANDOM LOGIC TEST(29/11/19)
+        Random door3Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
+        Material door3Material = doorMaterials.get(door3Rand.nextInt(4));//RANDOM LOGIC TEST(29/11/19)
         MeshRenderer link4WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link4WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
         MeshRenderer link4WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
         MeshRenderer link4WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link4WallFront = new MeshRenderer(null, materialCube, 3.0f, 3.0f, 0.25f);
+        MeshRenderer link4WallFront = new MeshRenderer(null, door3Material, 3.0f, 3.0f, 0.25f);
         meshRendererObjects.add(link4WallRight);
         meshRendererObjects.add(link4WallLeft);
         meshRendererObjects.add(link4WallBottom);
         meshRendererObjects.add(link4WallTop);
         meshRendererObjects.add(link4WallFront);
+        doors.add(link4WallFront);
         //25/11/19 - collectible coloured cubes
-        MeshRenderer collectableCube = new MeshRenderer(null, materialTest, 1.0f, 1.0f, 1.0f);
-        meshRendererCollectableObjects.add(collectableCube);
+        MeshRenderer collectableCubeBlue = new MeshRenderer(null, materialBlue, 1.0f, 1.0f, 1.0f);
+        collectableCubeBlue.setColour("blue");//29/11/19
+        meshRendererCollectableObjects.add(collectableCubeBlue);
+        MeshRenderer collectableCubeBlue2 = new MeshRenderer(null, materialBlue, 1.0f, 1.0f, 1.0f);
+        collectableCubeBlue2.setColour("blue2");
+        meshRendererCollectableObjects.add(collectableCubeBlue2);
+        MeshRenderer collectableCubeBlue3 = new MeshRenderer(null, materialBlue, 1.0f, 1.0f, 1.0f);
+        collectableCubeBlue3.setColour("blue3");
+        meshRendererCollectableObjects.add(collectableCubeBlue3);
+        MeshRenderer collectableCubeYellow = new MeshRenderer(null, materialYellow, 1.0f, 1.0f, 1.0f);
+        collectableCubeYellow.setColour("yellow");//29/11/19
+        meshRendererCollectableObjects.add(collectableCubeYellow);
+        MeshRenderer collectableCubeYellow2 = new MeshRenderer(null, materialYellow, 1.0f, 1.0f, 1.0f);
+        collectableCubeYellow2.setColour("yellow2");
+        meshRendererCollectableObjects.add(collectableCubeYellow2);
+        MeshRenderer collectableCubeYellow3 = new MeshRenderer(null, materialYellow, 1.0f, 1.0f, 1.0f);
+        collectableCubeYellow3.setColour("yellow3");
+        meshRendererCollectableObjects.add(collectableCubeYellow3);
+        MeshRenderer collectableCubeRed = new MeshRenderer(null, materialRed, 1.0f, 1.0f, 1.0f);
+        collectableCubeRed.setColour("red");
+        meshRendererCollectableObjects.add(collectableCubeRed);
+        MeshRenderer collectableCubeRed2 = new MeshRenderer(null, materialRed, 1.0f, 1.0f, 1.0f);
+        collectableCubeRed2.setColour("red2");
+        meshRendererCollectableObjects.add(collectableCubeRed2);
+        MeshRenderer collectableCubeRed3 = new MeshRenderer(null, materialRed, 1.0f, 1.0f, 1.0f);
+        collectableCubeRed3.setColour("red3");
+        meshRendererCollectableObjects.add(collectableCubeRed3);
+        MeshRenderer collectableCubeBrown = new MeshRenderer(null, materialBrown, 1.0f, 1.0f, 1.0f);
+        collectableCubeBrown.setColour("brown");
+        meshRendererCollectableObjects.add(collectableCubeBrown);
+        MeshRenderer collectableCubeBrown2 = new MeshRenderer(null, materialBrown, 1.0f, 1.0f, 1.0f);
+        collectableCubeBrown2.setColour("brown2");
+        meshRendererCollectableObjects.add(collectableCubeBrown2);
+        MeshRenderer collectableCubeBrown3 = new MeshRenderer(null, materialBrown, 1.0f, 1.0f, 1.0f);
+        collectableCubeBrown3.setColour("brown3");
+        meshRendererCollectableObjects.add(collectableCubeBrown3);
+        MeshRenderer collectableCubePurple = new MeshRenderer(null, materialPurple, 1.0f, 1.0f, 1.0f);
+        collectableCubePurple.setColour("purple");
+        meshRendererCollectableObjects.add(collectableCubePurple);
+        MeshRenderer collectableCubePurple2 = new MeshRenderer(null, materialPurple, 1.0f, 1.0f, 1.0f);
+        collectableCubePurple2.setColour("purple2");
+        meshRendererCollectableObjects.add(collectableCubePurple2);
+        MeshRenderer collectableCubePurple3 = new MeshRenderer(null, materialPurple, 1.0f, 1.0f, 1.0f);
+        collectableCubePurple3.setColour("purple3");
+        meshRendererCollectableObjects.add(collectableCubePurple3);
+        MeshRenderer collectableCubeGreen = new MeshRenderer(null, materialGreen, 1.0f, 1.0f, 1.0f);
+        collectableCubeGreen.setColour("green");
+        meshRendererCollectableObjects.add(collectableCubeGreen);
+        MeshRenderer collectableCubeGreen2 = new MeshRenderer(null, materialGreen, 1.0f, 1.0f, 1.0f);
+        collectableCubeGreen2.setColour("green2");
+        meshRendererCollectableObjects.add(collectableCubeGreen2);
+        MeshRenderer collectableCubeGreen3 = new MeshRenderer(null, materialGreen, 1.0f, 1.0f, 1.0f);
+        collectableCubeGreen3.setColour("green3");
+        meshRendererCollectableObjects.add(collectableCubeGreen3);
+        
         
         //GAME_OBJECTS
         GameObject directionalLightObject = new GameObject();
@@ -171,6 +283,10 @@ public class TestGame extends Game
         GameObject pointLightObject = new GameObject();
         pointLightObject.addComponent(new PointLight(new Vector3f(0,1,0), 1.0f, new Attenuation(0,0,1)));
         pointLightObject.getTransform().getPos().set(0, 3, 0);
+        
+        GameObject pointLightObject2 = new GameObject();
+        pointLightObject2.addComponent(new PointLight(new Vector3f(0,1,0), 1.0f, new Attenuation(0,0,1)));
+        pointLightObject2.getTransform().getPos().set(0, 3, 160);
          
         //Start Room Geometry
         GameObject startRoomWRight = new GameObject().addComponent(startRoomWallRight);
@@ -298,29 +414,71 @@ public class TestGame extends Game
         GameObject link4WFront = new GameObject().addComponent(link4WallFront);
         link4WFront.getTransform().getPos().set(0, 3, 130);
         //25/11/19 - collectible coloured cubes
-        GameObject collectableCube1 = new GameObject().addComponent(collectableCube);
-        collectableCube1.getTransform().getPos().set(0, 3, 3);
-         
+        //ROOM 1
+        GameObject collectableCube1 = new GameObject().addComponent(collectableCubeBlue);
+        collectableCube1.getTransform().getPos().set(-6, 3, 45);
+        GameObject collectableCube2 = new GameObject().addComponent(collectableCubeYellow);
+        collectableCube2.getTransform().getPos().set(6, 3, 45);
+        GameObject collectableCube3 = new GameObject().addComponent(collectableCubeRed);
+        collectableCube3.getTransform().getPos().set(-6, 3, 40);
+        GameObject collectableCube4 = new GameObject().addComponent(collectableCubeBrown);
+        collectableCube4.getTransform().getPos().set(6, 3, 40);
+        GameObject collectableCube5 = new GameObject().addComponent(collectableCubePurple);
+        collectableCube5.getTransform().getPos().set(-6, 3, 35);
+        GameObject collectableCube6 = new GameObject().addComponent(collectableCubeGreen);
+        collectableCube6.getTransform().getPos().set(6, 3, 35);
+        //ROOM 2
+        GameObject collectableCube7 = new GameObject().addComponent(collectableCubeBlue2);
+        collectableCube7.getTransform().getPos().set(6, 3, 85);
+        GameObject collectableCube8 = new GameObject().addComponent(collectableCubeYellow2);
+        collectableCube8.getTransform().getPos().set(-6, 3, 85);
+        GameObject collectableCube9 = new GameObject().addComponent(collectableCubeRed2);
+        collectableCube9.getTransform().getPos().set(6, 3, 80);
+        GameObject collectableCube10 = new GameObject().addComponent(collectableCubeBrown2);
+        collectableCube10.getTransform().getPos().set(-6, 3, 80);
+        GameObject collectableCube11 = new GameObject().addComponent(collectableCubePurple2);
+        collectableCube11.getTransform().getPos().set(6, 3, 75);
+        GameObject collectableCube12 = new GameObject().addComponent(collectableCubeGreen2);
+        collectableCube12.getTransform().getPos().set(-6, 3, 75);
+        //ROOM 3
+        GameObject collectableCube13 = new GameObject().addComponent(collectableCubeBlue3);
+        collectableCube13.getTransform().getPos().set(6, 3, 125);
+        GameObject collectableCube14 = new GameObject().addComponent(collectableCubeYellow3);
+        collectableCube14.getTransform().getPos().set(6, 3, 120);
+        GameObject collectableCube15 = new GameObject().addComponent(collectableCubeRed3);
+        collectableCube15.getTransform().getPos().set(-6, 3, 125);
+        GameObject collectableCube16 = new GameObject().addComponent(collectableCubeBrown3);
+        collectableCube16.getTransform().getPos().set(-6, 3, 120);
+        GameObject collectableCube17 = new GameObject().addComponent(collectableCubePurple3);
+        collectableCube17.getTransform().getPos().set(6, 3, 115);
+        GameObject collectableCube18 = new GameObject().addComponent(collectableCubeGreen3);
+        collectableCube18.getTransform().getPos().set(-6, 3, 115);
+        
         GameObject testMesh5 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, materialTest, 0.0f, 0.0f, 0.0f));// 11/7/19 test
         testMesh5.getTransform().getPos().set(0, 3, 0);
         testMesh5.getTransform().setRot(new Quaternion(new Vector3f(0,1,0), 0.4f));
+        
+        GameObject testMesh6 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, materialTest, 0.0f, 0.0f, 0.0f));
+        testMesh6.getTransform().getPos().set(0, 3, 160);
+        testMesh6.getTransform().setRot(new Quaternion(new Vector3f(0,1,0), 0.4f));
          
         GameObject player = new GameObject();
         FreeMove playerMovement = new FreeMove(10.0f);
         freeMoveObjects.add(playerMovement);
-        player.getTransform().getPos().set(5, 3, 0);
+        player.getTransform().getPos().set(0, 3, -5);
         player.addComponent(new FreeLook(0.5f));
         player.addComponent(playerMovement);
         player.addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
         
         GameObject spotLightObject = new GameObject();
-        SpotLight spotLight =  new SpotLight(new Vector3f(0,1,1), 0.4f, new Attenuation(0,0,0.1f), 0.7f);
+        SpotLight spotLight =  new SpotLight(new Vector3f(1,1,1), 0.4f, new Attenuation(0,0,0.1f), 0.7f);
         spotLightObjects.add(spotLight);
         spotLightObject.addComponent(spotLight);
         spotLightObject.getTransform().getPos().set(5,5,0);//13/11/19
          
         addObject(directionalLightObject);
         addObject(pointLightObject);
+        addObject(pointLightObject2);
         addObject(spotLightObject);
         //Start room geometry
         addObject(startRoomWRight);
@@ -391,7 +549,25 @@ public class TestGame extends Game
         addObject(link4WFront);
         //25/11/19 - collectible coloured cubes
         addObject(collectableCube1);
+        addObject(collectableCube2);
+        addObject(collectableCube3);
+        addObject(collectableCube4);
+        addObject(collectableCube5);
+        addObject(collectableCube6);
+        addObject(collectableCube7);
+        addObject(collectableCube8);
+        addObject(collectableCube9);
+        addObject(collectableCube10);
+        addObject(collectableCube11);
+        addObject(collectableCube12);
+        addObject(collectableCube13);
+        addObject(collectableCube14);
+        addObject(collectableCube15);
+        addObject(collectableCube16);
+        addObject(collectableCube17);
+        addObject(collectableCube18);
         addObject(testMesh5);
+        addObject(testMesh6);
         addObject(player);
     }
     
@@ -442,5 +618,419 @@ public class TestGame extends Game
     {
     	spotLightObjects.get(0).getParent().getTransform().setPos(freeMoveObjects.get(0).getNewPos());
     	spotLightObjects.get(0).getParent().getTransform().setRot(freeMoveObjects.get(0).getTransform().getRot());
+    }
+    
+    public void moveDoor()//13/11/19
+    {
+    	/*
+    	int numberOfCollectables = meshRendererCollectableObjects.size();
+    	int collected = 0;
+    	for(int i = 0; i < numberOfCollectables; i++) {
+    		if(meshRendererCollectableObjects.get(i).getCollected() == true)
+    			collected++;
+    	}
+    	*/
+    	//DOOR 1
+    	int numCollectedForFirstDoor = 0;
+    	if(doors.get(0).getMaterial().getFileName() == "green.png") {
+    	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+    		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+    		if(colourOfCurrentCollectable.equals("blue")) {
+    			if(currentMeshRenderer.getCollected() == true) {
+    				numCollectedForFirstDoor++;
+    			}
+    		}
+    	}
+    	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+    		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+    		if(colourOfCurrentCollectable.equals("yellow")) {
+    			if(currentMeshRenderer.getCollected() == true) {
+    				numCollectedForFirstDoor++;
+    			}
+    		}
+    	}
+    	if(numCollectedForFirstDoor == 2) {
+    		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+    	}
+    	}
+    	if(doors.get(0).getMaterial().getFileName() == "purple.jpg") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("red")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("blue")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForFirstDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+    			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+    	if(doors.get(0).getMaterial().getFileName() == "orange.jpg") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("yellow")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("red")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForFirstDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+    			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+    	if(doors.get(0).getMaterial().getFileName() == "maroon.png") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("red")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("brown")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForFirstDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+    			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+    	if(doors.get(0).getMaterial().getFileName() == "burgundy.png") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("red")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("purple")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForFirstDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+    			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+    	if(doors.get(0).getMaterial().getFileName() == "cyan.png") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("green")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("blue")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForFirstDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForFirstDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(0).getParent().getTransform().getPos();
+    			doors.get(0).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+    	//DOOR 2
+    	int numCollectedForSeccondDoor = 0;
+    	if(doors.get(1).getMaterial().getFileName() == "green.png") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("blue2")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForSeccondDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("yellow2")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForSeccondDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForSeccondDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+    			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+        	if(doors.get(1).getMaterial().getFileName() == "purple.jpg") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("blue2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForSeccondDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+        			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(1).getMaterial().getFileName() == "orange.jpg") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("yellow2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForSeccondDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+        			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(1).getMaterial().getFileName() == "maroon.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("brown2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForSeccondDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+        			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(1).getMaterial().getFileName() == "burgundy.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("purple2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForSeccondDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+        			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(1).getMaterial().getFileName() == "cyan.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("green2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("blue2")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForSeccondDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForSeccondDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(1).getParent().getTransform().getPos();
+        			doors.get(1).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+    	//DOOR 3
+    	int numCollectedForThirdDoor = 0;
+    	if(doors.get(2).getMaterial().getFileName() == "green.png") {
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("blue3")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForThirdDoor++;
+        			}
+        		}
+        	}
+        	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+        		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+        		if(colourOfCurrentCollectable.equals("yellow3")) {
+        			if(currentMeshRenderer.getCollected() == true) {
+        				numCollectedForThirdDoor++;
+        			}
+        		}
+        	}
+        	if(numCollectedForThirdDoor == 2) {
+        		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+    			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+        	}
+        	}
+        	if(doors.get(2).getMaterial().getFileName() == "purple.jpg") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("blue3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForThirdDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+        			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(2).getMaterial().getFileName() == "orange.jpg") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("yellow3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForThirdDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+        			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(2).getMaterial().getFileName() == "maroon.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("brown3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForThirdDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+        			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(2).getMaterial().getFileName() == "burgundy.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("red3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("purple3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForThirdDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+        			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
+        	if(doors.get(2).getMaterial().getFileName() == "cyan.png") {
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("green3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	for(MeshRenderer currentMeshRenderer: meshRendererCollectableObjects) {//27/11/19
+            		String colourOfCurrentCollectable = currentMeshRenderer.getColour();//29/11/19
+            		if(colourOfCurrentCollectable.equals("blue3")) {
+            			if(currentMeshRenderer.getCollected() == true) {
+            				numCollectedForThirdDoor++;
+            			}
+            		}
+            	}
+            	if(numCollectedForThirdDoor == 2) {
+            		Vector3f oldDoorPosition = doors.get(2).getParent().getTransform().getPos();
+        			doors.get(2).getParent().getTransform().setPos(oldDoorPosition.add(new Vector3f(0.02f,0,0)));
+            	}
+            	}
     }
 }

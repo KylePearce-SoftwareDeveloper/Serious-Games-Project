@@ -8,6 +8,8 @@ import com.base.engine.rendering.resourceManagement.MappedValues;
 public class Material extends MappedValues
 {
 	private HashMap<String, Texture> textureHashMap;
+	//private String colour = " ";//29/11/19
+	private String fileName;//RANDOM LOGIC TEST(29/11/19)
 
 	public Material() 
 	{
@@ -15,7 +17,7 @@ public class Material extends MappedValues
 		textureHashMap = new HashMap<String, Texture>();	
 	}
 	
-	public void addTexture(String name, Texture texture){ textureHashMap.put(name, texture); }
+	public void addTexture(String name, Texture texture){ textureHashMap.put(name, texture); this.fileName = texture.getFileName();}//RANDOM LOGIC TEST(29/11/19)
 	
 	public Texture getTexture(String name)
 	{ 
@@ -24,5 +26,21 @@ public class Material extends MappedValues
 			return result;
 		
 		return new Texture("test.png");
+	}
+	/*
+	public String getColour()//29/11/19
+	{ 
+		return colour;
+	}
+	
+	public void setColour(String colour)//29/11/19
+	{ 
+		this.colour = colour;
+	}
+	*/
+	
+	public String getFileName()
+	{
+		return fileName;
 	}
 }

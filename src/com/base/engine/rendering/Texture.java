@@ -114,4 +114,9 @@ public class Texture
 		
 		return null;
 	}
+	
+	public String getFileName()//RANDOM LOGIC TEST(29/11/19)
+	{
+		return fileName;
+	}
 }
