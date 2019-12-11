@@ -22,14 +22,18 @@ public class TestGame extends Game
         float fieldWidth = 10.0f;
         
         //MATERIALS
-        Material materialCube = new Material(); 
-        materialCube.addTexture("diffuse", new Texture("bricks.jpg"));
-        materialCube.addFloat("specularIntensity", 1);
-        materialCube.addFloat("specularPower", 8);
-        Material materialTest = new Material();
-        materialTest.addTexture("diffuse", new Texture("white.jpg"));
-        materialTest.addFloat("specularIntensity", 1);
-        materialTest.addFloat("specularPower", 8);
+        Material monkeyBrown  = new Material();
+        monkeyBrown.addTexture("diffuse", new Texture("monkeyBrown.jpg"));
+        monkeyBrown.addFloat("specularIntensity", 1);
+        monkeyBrown.addFloat("specularPower", 8);
+        Material materialGrey = new Material(); 
+        materialGrey.addTexture("diffuse", new Texture("grey.png"));
+        materialGrey.addFloat("specularIntensity", 1);
+        materialGrey.addFloat("specularPower", 8);
+        Material materialWhite = new Material();
+        materialWhite.addTexture("diffuse", new Texture("white.jpg"));
+        materialWhite.addFloat("specularIntensity", 1);
+        materialWhite.addFloat("specularPower", 8);
         Material materialBlue = new Material();
         materialBlue.addTexture("diffuse", new Texture("blue.png"));
         materialBlue.addFloat("specularIntensity", 1);
@@ -82,13 +86,13 @@ public class TestGame extends Game
         
         //MESH_RENDERERS
         //Start room geometry
-        MeshRenderer startRoomWallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer startRoomWallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer startRoomWallBottom = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer startRoomWallTop = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer startRoomWallFront1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer startRoomWallFront2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer startRoomWallBack = new MeshRenderer(null, materialCube, 10.0f, 3.0f, 0.25f);
+        MeshRenderer startRoomWallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer startRoomWallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer startRoomWallBottom = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer startRoomWallTop = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer startRoomWallFront1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer startRoomWallFront2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer startRoomWallBack = new MeshRenderer(null, materialWhite, 10.0f, 3.0f, 0.25f);
         meshRendererObjects.add(startRoomWallRight);
         meshRendererObjects.add(startRoomWallLeft);
         meshRendererObjects.add(startRoomWallBottom);
@@ -97,14 +101,14 @@ public class TestGame extends Game
         meshRendererObjects.add(startRoomWallFront2);
         meshRendererObjects.add(startRoomWallBack);
         //Level 1 Geometry
-        MeshRenderer levelOneWallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelOneWallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelOneWallBottom = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelOneWallTop = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelOneWallFront1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelOneWallFront2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelOneWallBack1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelOneWallBack2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelOneWallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelOneWallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelOneWallBottom = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelOneWallTop = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelOneWallFront1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelOneWallFront2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelOneWallBack1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelOneWallBack2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
         meshRendererObjects.add(levelOneWallRight);
         meshRendererObjects.add(levelOneWallLeft);
         meshRendererObjects.add(levelOneWallBottom);
@@ -114,14 +118,14 @@ public class TestGame extends Game
         meshRendererObjects.add(levelOneWallBack1);
         meshRendererObjects.add(levelOneWallBack2);
         //Level 2 Geometry
-        MeshRenderer levelTwoWallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelTwoWallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelTwoWallBottom = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelTwoWallTop = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelTwoWallFront1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelTwoWallFront2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelTwoWallBack1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelTwoWallBack2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelTwoWallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelTwoWallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelTwoWallBottom = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelTwoWallTop = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelTwoWallFront1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelTwoWallFront2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelTwoWallBack1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelTwoWallBack2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
         meshRendererObjects.add(levelTwoWallRight);
         meshRendererObjects.add(levelTwoWallLeft);
         meshRendererObjects.add(levelTwoWallBottom);
@@ -131,14 +135,14 @@ public class TestGame extends Game
         meshRendererObjects.add(levelTwoWallBack1);
         meshRendererObjects.add(levelTwoWallBack2);
         //Level 3 Geometry
-        MeshRenderer levelThreeWallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelThreeWallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer levelThreeWallBottom = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelThreeWallTop = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer levelThreeWallFront1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelThreeWallFront2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelThreeWallBack1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer levelThreeWallBack2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelThreeWallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelThreeWallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer levelThreeWallBottom = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelThreeWallTop = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer levelThreeWallFront1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelThreeWallFront2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelThreeWallBack1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer levelThreeWallBack2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
         meshRendererObjects.add(levelThreeWallRight);
         meshRendererObjects.add(levelThreeWallLeft);
         meshRendererObjects.add(levelThreeWallBottom);
@@ -148,13 +152,13 @@ public class TestGame extends Game
         meshRendererObjects.add(levelThreeWallBack1);
         meshRendererObjects.add(levelThreeWallBack2);
         //End Room Geometry
-        MeshRenderer endRoomWallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer endRoomWallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer endRoomWallBottom = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer endRoomWallTop = new MeshRenderer(null, materialCube, 10.0f, 0.25f, 10.0f);
-        MeshRenderer endRoomWallFront = new MeshRenderer(null, materialCube, 10.0f, 3.0f, 0.25f);
-        MeshRenderer endRoomWallBack1 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
-        MeshRenderer endRoomWallBack2 = new MeshRenderer(null, materialCube, 5.0f, 3.0f, 0.25f);
+        MeshRenderer endRoomWallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer endRoomWallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer endRoomWallBottom = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer endRoomWallTop = new MeshRenderer(null, materialGrey, 10.0f, 0.25f, 10.0f);
+        MeshRenderer endRoomWallFront = new MeshRenderer(null, materialWhite, 10.0f, 3.0f, 0.25f);
+        MeshRenderer endRoomWallBack1 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
+        MeshRenderer endRoomWallBack2 = new MeshRenderer(null, materialWhite, 5.0f, 3.0f, 0.25f);
         meshRendererObjects.add(endRoomWallRight);
         meshRendererObjects.add(endRoomWallLeft);
         meshRendererObjects.add(endRoomWallBottom);
@@ -163,10 +167,10 @@ public class TestGame extends Game
         meshRendererObjects.add(endRoomWallBack1);
         meshRendererObjects.add(endRoomWallBack2);
         //Link Corridor 1
-        MeshRenderer link1WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link1WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link1WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link1WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link1WallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link1WallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link1WallBottom = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link1WallTop = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
         //MeshRenderer link1WallFront = new MeshRenderer(null, materialCube, 3.0f, 3.0f, 0.25f);
         meshRendererObjects.add(link1WallRight);
         meshRendererObjects.add(link1WallLeft);
@@ -176,10 +180,10 @@ public class TestGame extends Game
         //Link Corridor 2
         Random door1Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
         Material door1Material = doorMaterials.get(door1Rand.nextInt(6));//RANDOM LOGIC TEST(29/11/19)
-        MeshRenderer link2WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link2WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link2WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link2WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link2WallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link2WallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link2WallBottom = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link2WallTop = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
         MeshRenderer link2WallFront = new MeshRenderer(null, door1Material, 3.0f, 3.0f, 0.25f);//RANDOM LOGIC TEST(29/11/19)
         meshRendererObjects.add(link2WallRight);
         meshRendererObjects.add(link2WallLeft);
@@ -191,10 +195,10 @@ public class TestGame extends Game
         doorMaterials.remove(doors.get(0).getMaterial());//RANDOM LOGIC TEST(29/11/19)
         Random door2Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
         Material door2Material = doorMaterials.get(door2Rand.nextInt(5));//RANDOM LOGIC TEST(29/11/19)
-        MeshRenderer link3WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link3WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link3WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link3WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link3WallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link3WallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link3WallBottom = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link3WallTop = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
         MeshRenderer link3WallFront = new MeshRenderer(null, door2Material, 3.0f, 3.0f, 0.25f);//RANDOM LOGIC TEST(29/11/19)
         meshRendererObjects.add(link3WallRight);
         meshRendererObjects.add(link3WallLeft);
@@ -206,10 +210,10 @@ public class TestGame extends Game
         doorMaterials.remove(doors.get(1).getMaterial());//RANDOM LOGIC TEST(29/11/19)
         Random door3Rand = new Random();//RANDOM LOGIC TEST(29/11/19)
         Material door3Material = doorMaterials.get(door3Rand.nextInt(4));//RANDOM LOGIC TEST(29/11/19)
-        MeshRenderer link4WallRight = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link4WallLeft = new MeshRenderer(null, materialCube, 0.25f, 3.0f, 10.0f);
-        MeshRenderer link4WallBottom = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
-        MeshRenderer link4WallTop = new MeshRenderer(null, materialCube, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link4WallRight = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link4WallLeft = new MeshRenderer(null, materialWhite, 0.25f, 3.0f, 10.0f);
+        MeshRenderer link4WallBottom = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
+        MeshRenderer link4WallTop = new MeshRenderer(null, materialGrey, 3.0f, 0.25f, 10.0f);
         MeshRenderer link4WallFront = new MeshRenderer(null, door3Material, 3.0f, 3.0f, 0.25f);
         meshRendererObjects.add(link4WallRight);
         meshRendererObjects.add(link4WallLeft);
@@ -275,18 +279,28 @@ public class TestGame extends Game
         
         
         //GAME_OBJECTS
-        GameObject directionalLightObject = new GameObject();
-        DirectionalLight directionalLight = new DirectionalLight(new Vector3f(0,0,1), 0.4f);
-        directionalLightObject.addComponent(directionalLight);
-        directionalLight.getTransform().setRot(new Quaternion(new Vector3f(1,0,0), (float)Math.toRadians(-45)));
-                  
-        GameObject pointLightObject = new GameObject();
-        pointLightObject.addComponent(new PointLight(new Vector3f(0,1,0), 1.0f, new Attenuation(0,0,1)));
-        pointLightObject.getTransform().getPos().set(0, 3, 0);
         
-        GameObject pointLightObject2 = new GameObject();
-        pointLightObject2.addComponent(new PointLight(new Vector3f(0,1,0), 1.0f, new Attenuation(0,0,1)));
-        pointLightObject2.getTransform().getPos().set(0, 3, 160);
+        //LIGHTING
+        //GameObject directionalLightObject = new GameObject();
+        //DirectionalLight directionalLight = new DirectionalLight(new Vector3f(1,0,0), 0.0f);
+        //directionalLightObject.addComponent(directionalLight);
+        //directionalLight.getTransform().setRot(new Quaternion(new Vector3f(1,0,0), (float)Math.toRadians(-45)));
+                  
+        GameObject pointLightLeft = new GameObject();
+        pointLightLeft.addComponent(new PointLight(new Vector3f(1,1,1), 1.0f, new Attenuation(0,0,1)));
+        pointLightLeft.getTransform().getPos().set(-3, 3, 0);
+        
+        GameObject pointLightRight = new GameObject();
+        pointLightRight.addComponent(new PointLight(new Vector3f(1,1,1), 1.0f, new Attenuation(0,0,1)));
+        pointLightRight.getTransform().getPos().set(3, 3, 0);
+        
+        GameObject pointLightLeft2 = new GameObject();
+        pointLightLeft2.addComponent(new PointLight(new Vector3f(1,1,1), 1.0f, new Attenuation(0,0,1)));
+        pointLightLeft2.getTransform().getPos().set(-3, 3, 160);
+        
+        GameObject pointLightRight2 = new GameObject();
+        pointLightRight2.addComponent(new PointLight(new Vector3f(1,1,1), 1.0f, new Attenuation(0,0,1)));
+        pointLightRight2.getTransform().getPos().set(3, 3, 160);
          
         //Start Room Geometry
         GameObject startRoomWRight = new GameObject().addComponent(startRoomWallRight);
@@ -454,11 +468,11 @@ public class TestGame extends Game
         GameObject collectableCube18 = new GameObject().addComponent(collectableCubeGreen3);
         collectableCube18.getTransform().getPos().set(-6, 3, 115);
         
-        GameObject testMesh5 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, materialTest, 0.0f, 0.0f, 0.0f));// 11/7/19 test
+        GameObject testMesh5 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, monkeyBrown, 0.0f, 0.0f, 0.0f));// 11/7/19 test
         testMesh5.getTransform().getPos().set(0, 3, 0);
         testMesh5.getTransform().setRot(new Quaternion(new Vector3f(0,1,0), 0.4f));
         
-        GameObject testMesh6 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, materialTest, 0.0f, 0.0f, 0.0f));
+        GameObject testMesh6 = new GameObject().addComponent(new LookAtComponent()).addComponent(new MeshRenderer(testMonkeyMesh, monkeyBrown, 0.0f, 0.0f, 0.0f));
         testMesh6.getTransform().getPos().set(0, 3, 160);
         testMesh6.getTransform().setRot(new Quaternion(new Vector3f(0,1,0), 0.4f));
          
@@ -471,15 +485,15 @@ public class TestGame extends Game
         player.addComponent(new Camera((float)Math.toRadians(70.0f), (float)Window.getWidth()/(float)Window.getHeight(), 0.01f, 1000.0f));
         
         GameObject spotLightObject = new GameObject();
-        SpotLight spotLight =  new SpotLight(new Vector3f(1,1,1), 0.4f, new Attenuation(0,0,0.1f), 0.7f);
+        SpotLight spotLight =  new SpotLight(new Vector3f(1,1,1), 0.1f, new Attenuation(0,0,0.1f), 0.7f);
         spotLightObjects.add(spotLight);
         spotLightObject.addComponent(spotLight);
         spotLightObject.getTransform().getPos().set(5,5,0);//13/11/19
          
-        addObject(directionalLightObject);
-        addObject(pointLightObject);
-        addObject(pointLightObject2);
-        addObject(spotLightObject);
+        addObject(pointLightLeft);
+        addObject(pointLightRight);
+        addObject(pointLightLeft2);
+        addObject(pointLightRight2);
         //Start room geometry
         addObject(startRoomWRight);
         addObject(startRoomWLeft);

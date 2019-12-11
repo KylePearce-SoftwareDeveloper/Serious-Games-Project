@@ -250,7 +250,6 @@ public class Shader
     		String uniformName = uniformLine.substring(whiteSpacePos + 1, uniformLine.length()).trim();
     		String uniformType = uniformLine.substring(0, whiteSpacePos).trim();
     		
-    		
     		resource.getUniformNames().add(uniformName);
     		resource.getUniformTypes().add(uniformType);
     		addUniform(uniformName, uniformType, structs);

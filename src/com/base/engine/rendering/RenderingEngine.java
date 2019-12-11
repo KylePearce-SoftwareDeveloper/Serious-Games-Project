@@ -47,7 +47,7 @@ public class RenderingEngine extends MappedValues
 		samplerMap = new HashMap<String, Integer>();
 		samplerMap.put("diffuse", 0);
 		
-		addVector3f("ambient", new Vector3f(0.1f, 0.1f, 0.1f));
+		addVector3f("ambient", new Vector3f(0.5f, 0.5f, 0.5f));
 		
 		forwardAmbient = new Shader("forward-ambient");
 		
