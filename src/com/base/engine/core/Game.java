@@ -21,6 +21,7 @@ public abstract class Game
     public void updateSpotLight() {}//13/11/19
     public void checkCollisionForCollectables() {} //25/11/19 - collectible coloured cubes
     public void moveDoor() {}
+    public void checkCollisionForVictoryObject() {}
     
     public void input(float delta)
     {
